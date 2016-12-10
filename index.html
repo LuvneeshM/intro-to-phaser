@@ -121,14 +121,14 @@ function update() {
     {
         //  Move to the left
         player.body.velocity.x = -150;
-
+        player.frame = 4;
         player.animations.play('left');
     }
     else if (cursors.right.isDown)
     {
         //  Move to the right
         player.body.velocity.x = 150;
-
+        player.frame = 2;
         player.animations.play('right');
     }
     else
@@ -136,7 +136,7 @@ function update() {
         //  Stand still
         player.animations.stop();
 
-        player.frame = 4;
+//        player.frame = 4;
     }
     
     //  Allow the player to jump if they are touching the ground.
