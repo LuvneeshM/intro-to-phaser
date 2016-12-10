@@ -35,6 +35,8 @@ var scoreText;
 
 function create() {
 
+    var facing;
+
     //  We're going to be using physics, so enable the Arcade Physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -121,14 +123,14 @@ function update() {
     {
         //  Move to the left
         player.body.velocity.x = -150;
-        player.frame = 4;
+        facing = true;
         player.animations.play('left');
     }
     else if (cursors.right.isDown)
     {
         //  Move to the right
         player.body.velocity.x = 150;
-        player.frame = 2;
+        facing = false;
         player.animations.play('right');
     }
     else
@@ -136,7 +138,8 @@ function update() {
         //  Stand still
         player.animations.stop();
 
-//        player.frame = 4;
+        if(facing){player.frame = 4;}
+        else player.frame = 2;
     }
     
     //  Allow the player to jump if they are touching the ground.
